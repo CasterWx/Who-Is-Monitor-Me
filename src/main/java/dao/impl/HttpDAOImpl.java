@@ -22,7 +22,7 @@ public class HttpDAOImpl implements IHttpDAO {
             System.out.println("连接失败");
         }
         try{
-            connection = DriverManager.getConnection("jdbc:mysql://45.32.136.190:3306/httpdb","antz","antz!");
+            connection = DriverManager.getConnection("jdbc:mysql://45.32.136.190:3306/httpdb?characterEncoding=utf8","antz","antz!");
         }catch (Exception e){
         }
     }

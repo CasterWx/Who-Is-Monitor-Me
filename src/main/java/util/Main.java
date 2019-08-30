@@ -47,7 +47,13 @@ public class Main {
             http.setIp(mr.group().replace("(","").replace(")",""));
         }
 
-        http.setAddress(ipToAddress(http.getIp()));
+        if (http.getIp().equals("208.67.222.222")){
+            return ;
+        }
+
+        IpAddress ipAddress = new IpAddress() ;
+
+        http.setAddress(ipAddress.getAddress(http.getIp()));
 
         String con1 = "connecting (.*)?\\(" ;
         Pattern ah1 = Pattern.compile(con1);
@@ -55,7 +61,6 @@ public class Main {
         while(mr1.find()) {
             http.setHostname(mr1.group().replace("connecting ","").replace("(",""));
         }
-
 
         iHttpDAO.save(http);
     }
